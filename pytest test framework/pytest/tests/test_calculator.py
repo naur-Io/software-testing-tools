@@ -1,19 +1,29 @@
 from calculator import Calculator
 import pytest
+from random import randint as randInt
+
+def get_data(calc):
+    inputs = []
+    for i in range(calc):
+        a = randInt(1, 100)
+        b = randInt(1, 100)
+        result = a + b
+        inputs.append((a, b, result))
+    return inputs
 
 
 class TestCalculator:
 
     # Setup method to initialize Calculator instance before tests
     def setup_class(self):
-        print("Setup Calculator instance for all tests.")
+        print("Setup Calculator")
         self.calc = Calculator()
 
     def setup_method(self):
         print(f"executed before each test.") 
          
     def teardown_class(self):
-        print("\nTeardown Calculator instance after tests.")
+        print("\n Teardown Calculator")
         del self.calc
     
     def test_addition(self):
@@ -40,8 +50,24 @@ class TestCalculator:
     def test_addition_duplicate(self):
         assert self.calc.addition(2,3) == 5
 
-    @pytest.mark.skipif(True, reason="Skipping this test unconditionally")
+    @pytest.mark.skipif(True, reason="Skipping this test")
     def test_subtract_skipif(self):
         assert self.calc.subtract(5,2) == 3
 
+    @pytest.mark.xfail(reason="power method not implemented yet")
+    def test_power(self):
+        assert self.calc.power(2, 3) == 8
 
+    @pytest.mark.parametrize("a, b, expected", [
+        (2, 3, 6),  
+        (4, 5, 20), 
+        (0, 10, 0), 
+        (5, 5, 25), 
+        (7, 2, 14) 
+    ])
+    def test_multiplication_parametrized(self, a, b, expected):
+        assert self.calc.multiply(a, b) == expected
+    
+    @pytest.mark.parametrize("a, b, expected", get_data(1000))
+    def test_addition_many(self, a, b, expected):
+        assert self.calc.addition(a, b) == expected

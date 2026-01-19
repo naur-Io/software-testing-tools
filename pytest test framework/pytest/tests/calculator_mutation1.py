@@ -1,7 +1,9 @@
+import pytest
+from calculator import Calculator
 
 class Calculator:
     def addition(self,a,b):
-        return a + b
+        return a * b
 
     def subtract(self,a,b):
         return a - b

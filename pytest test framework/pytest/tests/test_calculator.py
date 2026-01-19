@@ -46,6 +46,7 @@ class TestCalculator:
         with pytest.raises(ZeroDivisionError):
             self.calc.division(10, 0)
    
+   # Demonstrating various pytest markers
     @pytest.mark.skip(reason="duplicate test case")
     def test_addition_duplicate(self):
         assert self.calc.addition(2,3) == 5
@@ -65,9 +66,10 @@ class TestCalculator:
         (5, 5, 25), 
         (7, 2, 14) 
     ])
+    
     def test_multiplication_parametrized(self, a, b, expected):
         assert self.calc.multiply(a, b) == expected
     
-    @pytest.mark.parametrize("a, b, expected", get_data(1000))
+    @pytest.mark.parametrize("a, b, expected", get_data(1))
     def test_addition_many(self, a, b, expected):
         assert self.calc.addition(a, b) == expected

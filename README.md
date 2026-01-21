@@ -9,7 +9,7 @@ It is mainly used for study purposes, exercises, and small tools created during 
 - Gradle
 - Testing frameworks (e.g. JUnit)
 
-### Getting Started
+### Gradle Testing Tool (Java)
 Clone the repository:
 ```powershell
 git clone https://github.com/naur-Io/software-testing-tools.git
@@ -20,52 +20,49 @@ Make sure a compatible JDK is installed:
 
 Build the project and download dependencies:
 ```powershell
-./gradlew build 
-./gradlew test
+./gradlew build # Build the project
+./gradlew test # Run tests
+./gradlew clean run # Clean and run the project
 ```
 
 Dependencies are automatically managed by Gradle and are not stored in the repository.
-
-### Notes
-- Only source code is versioned
-- Dependencies are handled by Gradle
-- JDKs, build files, and caches are ignored via .gitignore
-
 
 ## Tech Stack for Python Projects
 - Python
 - pytest
 - Testing frameworks (e.g. pytest)
 
-### Getting Started
-Clone the repository:
-```powershel
-git clone https://github.com/naur-Io/software-testing-tools.git
-cd software-testing-tools/pytest test framework/pytest
-```
-
 Make sure a compatible Python version is installed:
 - Recommended: Python 3.8 or higher
 Create and activate a virtual environment:
 ```powershell
-create virtual envrioment
-python -m venv .venv
-
-activate the virtual enviroment
-.venv\Scripts\activate
-
-install pytest
-~ pip3 install pytest
+python -m venv .venv # Create virtual environment
+pip install pytest # Install pytest
 ```
-
-Run the tests using pytest:
 ```powershell
-pytest to run all the tests
-pytest -v to run a detailed output of the tests
-pytest -q to run a concise output of the tests
-python -m pytest -s -v to see print statements during test execution
+python -m venv .venv # Create virtual environment
+pip install pytest # Install pytest
+pytest # to run all the tests
+pytest -v # Test with detailed output
+pytest -v --cov # Test with coverage report
+pytest -cov -v --cov-report=html # Test with HTML report
 ```
 
+# Getting Started (Selenium with Java)
+Navigate to the Selenium Java project directory and Build and run tests:
+
+```powershell
+cd software-testing-tools/selenium-java
+
+./gradlew build # Build the project
+./gradlew test  # Run tests
+```
+
+## Selenium Configuration Notes
+- WebDriver executables are not included in the repository
+- Browser compatibility: Ensure your WebDriver version matches your browser version
+- Headless testing is supported for both Chrome and Firefox
+- Cross-browser testing configurations are available in the examples
 ### Notes
 - Only source code is versioned
 - Dependencies are managed via virtual environments

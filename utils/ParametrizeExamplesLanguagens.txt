@@ -1,0 +1,43 @@
+# Pytest Parametrize Example
+@pytest.mark.parametrize("a, b, expected", 
+[ (2, 3, 6), 
+(4, 5, 20), 
+(0, 10, 0), 
+(5, 5, 25), 
+(7, 2, 14) ])
+ 
+def test_multiplication_parametrized(self, a, b, expected): 
+  assert self.calc.multiply(a, b) == expected
+
+# Jest Test with Different Inputs
+test.each([
+  [2, 3, 6],
+  [4, 5, 20],
+  [0, 10, 0],
+  [5, 5, 25],
+  [7, 2, 14]
+])('multiplies %i and %i to get %i', (a, b, expected) => {
+  expect(multiply(a, b)).toBe(expected);
+});
+
+# JUnit 5 Parameterized Test
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+public class CalculatorTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "2, 3, 6",
+        "4, 5, 20",
+        "0, 10, 0",
+        "5, 5, 25",
+        "7, 2, 14"
+    })
+    void testMultiplication(int a, int b, int expected) {
+        Calculator calc = new Calculator();
+        assertEquals(expected, calc.multiply(a, b));
+    }
+}

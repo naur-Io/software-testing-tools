@@ -48,6 +48,41 @@ pytest -v --cov # Test with coverage report
 pytest -cov -v --cov-report=html # Test with HTML report
 ```
 
+Also in this repository is an example of using MutMut Library and Cosmic Ray for mutation testing in Python.
+
+### Mutation Testing with Mutut
+- Make sure Python had a version compatible with MutMut installed.
+```powershell
+deactvivate # Deactivate virtual environment if active
+python -m venv venv # Create virtual environment
+venv\Scripts\activate # Activate virtual environment
+pip install pytest
+pip install mutmut==2.4.4
+python -m mutmut --help # Commands available
+python -m mutmut run # Run mutation tests
+python -m mutmut results # Show mutation test results
+mutmut html # Generate HTML report
+```
+
+### Comsmic Ray Mutation Testing
+- Make sure Python had a version compatible with Cosmic Ray installed.
+```powershell
+python -m venv venv # Create virtual environment
+venv\Scripts\activate # Activate virtual environment
+pip install pytest
+pip install cosmic-ray
+cosmic-ray --help # Commands available
+```
+
+### To run mutation tests with Cosmic Ray, use the following commands:
+```powershell
+cosmic-ray --verbosity INFO init filename.toml filename.sqlite --force
+cosmic-ray --verbosity=INFO baseline filename.toml
+cr-report filename.sqlite --show-pending
+cosmic-ray --verbosity INFO exec filename.toml filename.sqlite
+cr-html filename.sqlite > report.html
+```
+
 # Getting Started (Selenium with Java)
 Navigate to the Selenium Java project directory and Build and run tests:
 

@@ -42,4 +42,16 @@ public class OnlineCalculatorTest {
         assertEquals("5", result);
     }
 
+    @Test
+    void fiveElevatedToSquare(){
+        WebElement button5 = driver.findElement(By.name("five"));
+        button5.click();
+        WebElement buttonSquare = driver.findElement(By.name("negateButton"));
+        buttonSquare.click();
+        WebElement display = driver.findElement(By.id("display"));
+        String result = display.getAttribute("value");
+        assertEquals("5", result);
+    }
+
+
 }

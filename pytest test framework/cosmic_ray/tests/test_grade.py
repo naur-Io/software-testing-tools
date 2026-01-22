@@ -55,11 +55,9 @@ def test_nota_muito_alta():
 
 
 
+    # To run mutation tests with Cosmic Ray, use the following commands:
     # cosmic-ray --verbosity INFO init grade.toml grade.sqlite --force
     # cosmic-ray --verbosity=INFO baseline grade.toml
     # cr-report grade.sqlite --show-pending
     # cosmic-ray --verbosity INFO exec grade.toml grade.sqlite
     # cr-html grade.sqlite > report.html
-
-
-        # cosmic-ray --verbosity INFO init grade.toml grade.sqlite --force && cosmic-ray --verbosity=INFO baseline grade.toml && cosmic-ray --verbosity INFO exec grade.toml grade.sqlite && cr-html grade.sqlite > report.html

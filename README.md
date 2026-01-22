@@ -91,6 +91,7 @@ cd software-testing-tools/selenium-java
 
 ./gradlew build # Build the project
 ./gradlew test  # Run tests
+./gradlew clean run # Clean and run the project
 ```
 
 ## Selenium Configuration Notes
